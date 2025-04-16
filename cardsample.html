@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Cards</title>
+    <link rel="stylesheet" href="cardSample.css">
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-image">
+                <img src="projectoryLogo.png" alt="SkillForge Image">
+            </div>
+
+            <div class="card-header">
+                <h2>SKILLFORGE</h2>
+                <p>Connecting you to your future self</p>
+            </div>
+
+            <div class="card-body">
+                <p><strong>Description:</strong> SkillForge is an AI-powered platform that empowers individuals to unlock their ultimate potential...</p>
+                <p><strong>Category:</strong> Education</p>
+                <p><strong>Date Posted:</strong> February 22nd</p>
+            </div>
+            
+            <div class="apply-section">
+               <span><button>+</button>Apply for Full-Stack/Frontend Dev role</span>
+                <button><span>+</span> Apply for Content Manager/Educator role</button>
+                <button><span>+</span> Apply for Backend Developer role</button>
+                <button><span>+</span> Apply for CO FOUNDER role</button>
+            </div>
+
+            <div class="card-tabs">
+                <button class="tab-btn active" onclick="showTab('team')">Team Members</button>
+                <button class="tab-btn" onclick="showTab('details')">Details</button>
+                <button class="tab-btn" onclick="showTab('comments')">Comments</button>
+            </div>
+
+            <div class="tab-content active" id="team">
+                <p><strong>Founder:</strong> <span>@Salva09</span></p>
+                <p>Team Size: 1</p>
+            </div>
+
+            <div class="tab-content" id="details">
+                <p>More details about the project will be listed here...</p>
+            </div>
+
+            <div class="tab-content" id="comments">
+                <p>No comments yet. Be the first to share your thoughts!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

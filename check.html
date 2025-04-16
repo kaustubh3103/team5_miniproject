@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input with Icon</title>
+    <script src="https://kit.fontawesome.com/YOUR-KIT-CODE.js" crossorigin="anonymous"></script>
+    <style>
+        .input-container {
+            position: relative;
+            width: 250px;
+        }
+        .input-container i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: gray;
+        }
+        .input-container input {
+            width: 100%;
+            padding: 10px 10px 10px 30px; /* Adjust padding to make space for the icon */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+        <input type="text" placeholder="Search...">
+    </div>
+</body>
+</html>

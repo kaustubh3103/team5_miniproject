@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs & Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #232222;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgb(117, 104, 104);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .faq {
+            margin-bottom: 10px;
+        }
+        .question {
+            background: #49627d;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .answer {
+            display: none;
+            padding: 10px;
+            background: #e9ecef;
+            border-left: 4px solid #007bff;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+        form {
+            margin-top: 20px;
+            padding: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #a73928;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+        button:hover {
+            background: #975f1f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="faqs-feedback">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="question">What is this website about?</div>
+            <div class="answer">This website provides information and collects user feedback to improve our services.</div>
+        </div>
+        <div class="faq">
+            <div class="question">How can I submit feedback?</div>
+            <div class="answer">You can submit your feedback using the form below.</div>
+        </div>
+        
+        <h2>Feedback Form</h2>
+        <form id="feedback-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            
+            <label for="message">Your Feedback:</label>
+            <textarea id="message" rows="4" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Toggle FAQ Answers
+            document.querySelectorAll(".question").forEach(q => {
+                q.addEventListener("click", function () {
+                    let answer = this.nextElementSibling;
+                    answer.style.display = answer.style.display === "block" ? "none" : "block";
+                });
+            });
+
+            // Handle Feedback Form Submission
+            document.getElementById("feedback-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+                alert("Thank you for your feedback, " + document.getElementById("name").value + "!");
+                this.reset();
+            });
+
+            // Smooth Scroll to FAQs & Feedback Section
+            document.querySelector("a[href='#']").addEventListener("click", function (event) {
+                event.preventDefault();
+                document.getElementById("faqs-feedback").scrollIntoView({ behavior: "smooth" });
+            });
+        });
+    </script>
+</body>
+</html>

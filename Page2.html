@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projectory</title>
+    <link rel="stylesheet" href="Page2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jersey+15&family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="projectoryLogo.png"  alt="Projectory"> <!-- Replace with actual logo -->
+                <h1>Projectory</h1>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <!-- EXPLORE & COMPETITION (Joined) -->
+                <div class="explore-competition">
+                    <li><a href="#" class="explore-btn">EXPLORE</a></li>
+                    <li><a href="#" class="competition-btn">COMPETITION</a></li>
+                </div>
+
+                <li><a href="FaqsFeedback.html">FAQs & Feedback</a></li>
+                <li><a href="https://solvearn.net/blog">Blogs</a></li>
+            </ul>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Profiles">
+                <i class="fas fa-caret-down"></i>
+            </div>
+
+            <!-- Buttons with Logos (Right to Search Box) -->
+            <div class="right-buttons">
+                <button class="icon-btn">
+                    <i class="fa-solid fa-calendar-days fa-2xl" style="color: #ffffff;"></i>
+                </button>
+                <button class="icon-btn">
+                    <i class="fa-solid fa-message fa-2xl" style="color: #FFD43B;"></i>
+                </button>
+                <button class="icon-btn">
+                    <i class="fa-solid fa-bell fa-2xl" style="color: #63E6BE;"></i>
+                </button>
+                <button class="icon-btn">
+                    <i class="fa-solid fa-user-group fa-2xl" style="color: #B197FC;"></i>
+                </button>
+            </div>
+
+            <!-- Profile Icon -->
+            <i class="fa-solid fa-circle-user fa-2xl"></i>
+        </nav>
+    </header>
+    <main>
+        <nav id="navbar2">
+            <div id="projectSearch">
+                <form action="">
+                    <label for="project"><i class="fas fa-search" id="searchicon"></i></label>
+                    <input type="text" placeholder="Search for a specific project" id="project">
+                    <input type="reset" value="&times;">
+                </form>
+
+                <div id="filter-btn">
+                    <h2>Filter By :</h2>
+                    <div class="dropdown">
+                    <button class="btn-filter" id="my-project">My Project</button>
+    
+                        <div class="form">
+                            <form action="">
+                                <label for="Name">Project Name:</label>
+                                <input type="text" name="Name" id="Name" required>
+                
+                                <label for="projectDescription">Project Description:</label>
+                                <input type="text" name="projectDescription" id="projectDescription" required>
+                
+                                <label for="imgUrl">Image Url :</label>
+                                <input type="text" name="imgUrl" id="imgUrl">
+                
+                                <label for="quantity">Team Members Quantity:</label>
+                                <input type="number" name="quantity" id="quantity" required>
+                
+                                <label for="members">Members Name:</label>
+                                <input type="text" name="members" id="members" placeholder="sepearate them with comma" required>
+                
+                                <label for="preference">Preference:</label>
+                                <input type="text" name="preference" id="preference" required>
+                
+                                <button type="submit" class="submit">Add Project</button>
+                                
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn-filter" id="categories-btn">Categories &#10225;</button>
+                        <div class="dropdown-content" id="categories-dropdown">
+                            <div class="dropdown-header">
+                                <span>Categories</span>
+                                <span class="close-btn" id="close-dropdown">×</span>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Artificial Intelligence"> Artificial Intelligence</label></td>
+                                    <td><label><input type="checkbox" value="Cyber Security"> Cyber Security</label></td>
+                                    <td><label><input type="checkbox" value="Education"> Education</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Fitness"> Fitness</label></td>
+                                    <td><label><input type="checkbox" value="Marketing"> Marketing</label></td>
+                                    <td><label><input type="checkbox" value="Real Estate"> Real Estate</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Travel"> Travel</label></td>
+                                    <td><label><input type="checkbox" value="Creativity"> Creativity</label></td>
+                                    <td><label><input type="checkbox" value="E-Commerce"> E-Commerce</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Finance"> Finance</label></td>
+                                    <td><label><input type="checkbox" value="Gaming"> Gaming</label></td>
+                                    <td><label><input type="checkbox" value="Nonprofits"> Nonprofits</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Software"> Software</label></td>
+                                    <td><label><input type="checkbox" value="Web 3"> Web 3</label></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+                   
+                    <div class="dropdown">
+                        <button class="btn-filter" id="location-btn">Location &#10225;</button>
+                        <div class="dropdown-content" id="location-dropdown">
+                            <div class="dropdown-header">
+                                <span>Location</span>
+                                <span class="close-btn" id="close-location">×</span>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Africa"> Africa</label></td>
+                                    <td><label><input type="checkbox" value="Antarctica"> Antarctica</label></td>
+                                    <td><label><input type="checkbox" value="Asia"> Asia</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Europe"> Europe</label></td>
+                                    <td><label><input type="checkbox" value="North America"> North America</label></td>
+                                    <td><label><input type="checkbox" value="Oceania"> Oceania</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="South America"> South America</label></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="dropdown">
+                        <button class="btn-filter" id="team-size-btn">Team Size &#10225;</button>
+                        <div class="dropdown-content" id="team-size-dropdown">
+                            <div class="dropdown-header">
+                                <span>Team Size</span>
+                                <span class="close-btn" id="close-team-size">×</span>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Team of One"> Team of One</label></td>
+                                    <td><label><input type="checkbox" value="Team of Two"> Team of Two</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Team of Three"> Team of Three</label></td>
+                                    <td><label><input type="checkbox" value="Over Three"> Over Three</label></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <button class="btn-filter" id="stage-btn">Stage &#10225;</button>
+                        <div class="dropdown-content" id="stage-dropdown">
+                            <div class="dropdown-header">
+                                <span>Stage</span>
+                                <span class="close-btn" id="close-stage">×</span>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Idea Stage"> Idea Stage</label></td>
+                                    <td><label><input type="checkbox" value="Building MVP"> Building MVP</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="MVP Stage"> MVP Stage</label></td>
+                                    <td><label><input type="checkbox" value="Product-Market Fit"> Product-Market Fit</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Fundraising Stage"> Fundraising Stage</label></td>
+                                    <td><label><input type="checkbox" value="Growth Stage"> Growth Stage</label></td>
+                                </tr>
+                                <tr>
+                                    <td><label><input type="checkbox" value="Exit Stage"> Exit Stage</label></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </nav>
+        <section id="featuredProjects">
+            <div id="header">
+                <h3>Feautred Projects</h3>
+                <button class="sideArrow">&#60;</button>
+                <button class="sideArrow">&#62;</button>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://cdna.artstation.com/p/assets/images/images/006/730/614/large/matias-toloza-finalrender1.jpg?1500848733" alt="project Image">
+                </div>
+                <div class="cardHeader">
+                    <p><b>Description:</b> SkillForge is an AI-powered platform...</p>
+                    <p><b>Category:</b> Education</p>
+                    <p><b>Date Posted:</b> February 27th</p>
+                </div>
+                <div class="applySection">
+                    <a href="Applyform.html" class="applyNowBtn" target="_blank">Apply For This Project</a>
+                </div>
+                <div class="cardTab">
+                    <button class="tabBtn">Team Members</button>
+                    <button class="tabBtn">Details</button>
+                    <button class="tabBtn">Comments</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://cdna.artstation.com/p/assets/images/images/080/067/226/large/l-etienne-highresscreenshot00003.jpg?1726584321" alt="project Image">
+                </div>
+                <div class="cardHeader">
+                    <p><b>Description:</b> SkillForge is an AI-powered platform...</p>
+                    <p><b>Category:</b> Education</p>
+                    <p><b>Date Posted:</b> February 27th</p>
+                </div>
+                <div class="applySection">
+                    <a href="Applyform.html" class="applyNowBtn" target="_blank">Apply For This Project</a>
+                </div>
+                <div class="cardTab">
+                    <button class="tabBtn">Team Members</button>
+                    <button class="tabBtn">Details</button>
+                    <button class="tabBtn">Comments</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://cdna.artstation.com/p/assets/images/images/006/730/614/large/matias-toloza-finalrender1.jpg?1500848733" alt="project Image">
+                </div>
+                <div class="cardHeader">
+                    <p><b>Description:</b> SkillForge is an AI-powered platform...</p>
+                    <p><b>Category:</b> Education</p>
+                    <p><b>Date Posted:</b> February 27th</p>
+                </div>
+                <div class="applySection">
+                    <a href="Applyform.html" class="applyNowBtn" target="_blank">Apply For This Project</a>
+                </div>
+                <div class="cardTab">
+                    <button class="tabBtn">Team Members</button>
+                    <button class="tabBtn">Details</button>
+                    <button class="tabBtn">Comments</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://cdna.artstation.com/p/assets/images/images/006/730/614/large/matias-toloza-finalrender1.jpg?1500848733" alt="project Image">
+                </div>
+                <div class="cardHeader">
+                    <p><b>Description:</b> SkillForge is an AI-powered platform...</p>
+                    <p><b>Category:</b> Education</p>
+                    <p><b>Date Posted:</b> February 27th</p>
+                </div>
+                <div class="applySection">
+                    <a href="Applyform.html" class="applyNowBtn" target="_blank">Apply For This Project</a>
+                </div>
+                <div class="cardTab">
+                    <button class="tabBtn">Team Members</button>
+                    <button class="tabBtn">Details</button>
+                    <button class="tabBtn">Comments</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://cdna.artstation.com/p/assets/images/images/006/730/614/large/matias-toloza-finalrender1.jpg?1500848733" alt="project Image">
+                </div>
+                <div class="cardHeader">
+                    <p><b>Description:</b> SkillForge is an AI-powered platform...</p>
+                    <p><b>Category:</b> Education</p>
+                    <p><b>Date Posted:</b> February 27th</p>
+                </div>
+                <div class="applySection">
+                    <a href="Applyform.html" class="applyNowBtn" target="_blank">Apply For This Project</a>
+                </div>
+                <div class="cardTab">
+                    <button class="tabBtn">Team Members</button>
+                    <button class="tabBtn">Details</button>
+                    <button class="tabBtn">Comments</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://cdna.artstation.com/p/assets/images/images/006/730/614/large/matias-toloza-finalrender1.jpg?1500848733" alt="project Image">
+                </div>
+                <div class="cardHeader">
+                    <p><b>Description:</b> SkillForge is an AI-powered platform...</p>
+                    <p><b>Category:</b> Education</p>
+                    <p><b>Date Posted:</b> February 27th</p>
+                </div>
+                <div class="applySection">
+                    <a href="Applyform.html" class="applyNowBtn" target="_blank">Apply For This Project</a>
+                </div>
+                <div class="cardTab">
+                    <button class="tabBtn">Team Members</button>
+                    <button class="tabBtn">Details</button>
+                    <button class="tabBtn">Comments</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://cdna.artstation.com/p/assets/images/images/006/730/614/large/matias-toloza-finalrender1.jpg?1500848733" alt="project Image">
+                </div>
+                <div class="cardHeader">
+                    <p><b>Description:</b> SkillForge is an AI-powered platform...</p>
+                    <p><b>Category:</b> Education</p>
+                    <p><b>Date Posted:</b> February 27th</p>
+                </div>
+                <div class="applySection">
+                    <a href="Applyform.html" class="applyNowBtn" target="_blank">Apply For This Project</a>
+                </div>
+                <div class="cardTab">
+                    <button class="tabBtn">Team Members</button>
+                    <button class="tabBtn">Details</button>
+                    <button class="tabBtn">Comments</button>
+                </div>
+            </div>       
+        </section>
+    </main>
+    
+    <script src="page(2).js"></script>
+</body>
+
+</html>

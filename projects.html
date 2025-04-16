@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Selection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; 
+            background-color: #1d1e1e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .form-container {
+            width: 450px;
+            padding: 20px;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            background-color: #1a1818;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            box-sizing: border-box; 
+            display: none; /* Initially hidden */
+        }
+        h2, h3 {
+            text-align: center;
+            color: #fefdfd;
+        }
+        label {
+            font-size: 14px;
+            color: #ffffff;
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #2a2a2a;
+            color: white;
+            box-sizing: border-box; 
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            display: block;
+            margin-top: -5px;
+        }
+        .project-list {
+            width: 90%;
+            max-width: 800px;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card { 
+            background: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            height: 500px;
+            width: 350px;
+            margin: 20px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            border: 5px rgb(223, 221, 221) groove;
+        }
+        .card-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .cardHeader {
+            background: #2e2e2e;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+        }
+        .applySection {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .applyNowBtn {
+            background-color: #ff4500;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .cardTab {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .tabBtn {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #featuredProjects {
+            margin-top: 50px;
+            width: 90%;
+            max-width: 1000px;
+        }
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .sideArrow {
+            background-color: #2a2a2a;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Buttons Section -->
+    <div class="button-container">
+        <button id="existingProject">Existing Project</button>
+        <button id="newProject">New Project</button>
+    </div>
+
+    <!-- Form Section (Initially Hidden) -->
+    <div id="projectForm" class="form-container">
+        <h3>Create New Project</h3>
+        <form id="projectFormElement">
+            <label>Project Name:</label>
+            <input type="text" id="projectName">
+            <span class="error" id="nameError"></span>
+
+            <label>Description:</label>
+            <textarea id="projectDesc"></textarea>
+            <span class="error" id="descError"></span>
+
+            <label>Image URL (Optional):</label>
+            <input type="url" id="projectImage">
+            <span class="error" id="imageError"></span>
+
+            <label>Number of Team Members:</label>
+            <input type="number" id="teamCount" min="1">
+            <span class="error" id="teamCountError"></span>
+
+            <label>Team Members' Names (Comma Separated):</label>
+            <input type="text" id="teamNames">
+            <span class="error" id="teamNamesError"></span>
+
+            <label>Hiring Preferences:</label>
+            <textarea id="hiringPrefs"></textarea>
+            <span class="error" id="hiringPrefsError"></span>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Projects List -->
+    <div class="project-list" id="projectList"></div>
+
+    <!-- Featured Projects Section -->
+    <section id="featuredProjects">
+        <div id="header">
+            <h3>Your Featured Projects :</h3>
+            <button class="sideArrow">&#60;</button>
+            <button class="sideArrow">&#62;</button>
+        </div>
+    </section>
+
+    <script>
+        // Show form when "New Project" is clicked
+        document.getElementById('newProject').addEventListener('click', function() {
+            document.getElementById('projectForm').style.display = 'block';
+        });
+
+        // Form Validation & Project Card Creation
+        document.getElementById('projectFormElement').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let projectName = document.getElementById('projectName').value.trim();
+            let projectDesc = document.getElementById('projectDesc').value.trim();
+            let projectImage = document.getElementById('projectImage').value.trim();
+            let teamNames = document.getElementById('teamNames').value.trim();
+
+            // Set default image if field is empty
+            if (projectImage === "") {
+                projectImage = "https://cdna.artstation.com/p/assets/images/images/006/730/614/large/matias-toloza-finalrender1.jpg?1500848733";
+            }
+
+            if (projectName.length < 3 || projectDesc.length < 10) {
+                alert("Please fill out the form correctly.");
+                return;
+            }
+
+            // Create project card
+            let projectCard = document.createElement("div");
+            projectCard.classList.add("card");
+
+            projectCard.innerHTML = `
+                <div class="card-image">
+                    <img src="${projectImage}" alt="Project Image">
+                </div>
+                <div class="cardHeader">
+                    <p><b>Description:</b> ${projectDesc}</p>
+                    <p><b>Category:</b> Custom Project</p>
+                    <p><b>Date Posted:</b> ${new Date().toDateString()}</p>
+                </div>
+                <div class="applySection">
+                    <a href="Applyform.html" class="applyNowBtn" target="_blank">Apply For This Project</a>
+                </div>
+                <div class="cardTab">
+                    <button class="tabBtn">Team Members</button>
+                    <button class="tabBtn">Details</button>
+                    <button class="tabBtn">Comments</button>
+                </div>
+                <button class="addProjectBtn">Add This Project</button>
+            `;
+
+            // Append the new card to the project list
+            document.getElementById('projectList').appendChild(projectCard);
+
+            // Add event listener to the "Add This Project" button
+            projectCard.querySelector('.addProjectBtn').addEventListener('click', function() {
+                document.getElementById('featuredProjects').appendChild(projectCard);
+                this.style.display = 'none'; // Hide the "Add This Project" button after adding
+            });
+
+            // Reset the form
+            document.getElementById('projectFormElement').reset();
+        });
+
+        function addToFeaturedProjects(projectName) {
+            let savedProjects = JSON.parse(localStorage.getItem("featuredProjects")) || [];
+            let selectedProject = savedProjects.find(p => p.name === projectName);
+            
+            if (selectedProject) {
+                let featuredProjects = JSON.parse(localStorage.getItem("featuredProjectsPage")) || [];
+                featuredProjects.push(selectedProject);
+                localStorage.setItem("featuredProjectsPage", JSON.stringify(featuredProjects));
+                alert("Project added to Featured Projects in page(2).html");
+            }
+        }
+    </script>
+   
+    
+
+</body>
+</html>

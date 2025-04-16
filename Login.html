@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Login.css">
+    <title>Projectory</title>
+    <script>
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        function login(event) {
+            event.preventDefault();
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let existingUser = users.find(user => user.email === email);
+
+            if (existingUser) {
+                if (existingUser.password === password) {
+                    alert("Login successful!");
+                    window.location.href = "Page2.html";
+                } else {
+                    alert("Incorrect password. Try again.");
+                }
+            } else {
+                users.push({ email, password });
+                localStorage.setItem("users", JSON.stringify(users));
+                alert("Account created & logged in!");
+                window.location.href = "Page2.html";
+            }
+        }
+    </script>
+</head>
+<body>
+  <div class="wrapper">
+    <form onsubmit="login(event)">
+      <h2>Login</h2>
+        <div class="input-field">
+        <input type="text" id="email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="password" required>
+        <label>Enter your password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit">Log In</button>
+      <div class="register">
+        <p>Don't have an account? Thus give valid info and click login</p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

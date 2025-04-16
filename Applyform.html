@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <style>
+        /* Inline CSS for styling */
+        body {
+            font-family: 'Arial', sans-serif; 
+            background-color: #1d1e1e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            width: 450px;
+            padding: 20px;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            background-color: #1a1818;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; 
+        }
+        h2 {
+            text-align: center;
+            color: #fefdfd;
+            font-size: 24px;
+        }
+        label {
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        input, button, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box; 
+        }
+        input:focus, select:focus {
+            border-color: #8b2e2e;
+            outline: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        select {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Apply for a Position</h2>
+        <form id="jobForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" required>
+
+            <label for="projectName">Project Name:</label>
+            <input type="text" id="projectName" required>
+
+            <label for="teamsId">Microsoft Teams ID:</label>
+            <input type="text" id="teamsId" required>
+
+            <label for="position">Applying Position:</label>
+            <select id="position">
+                <option value="Full-Stack">Full-Stack Developer</option>
+                <option value="Content Manager">Content Manager</option>
+                <option value="Backend Developer">Backend Developer</option>
+                <option value="Co-Founder">Co-Founder</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("jobForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const country = document.getElementById("country").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const projectName = document.getElementById("projeactName").value;
+            const teamsId = document.getElementById("teamsId").value;
+
+            // Regex patterns for validation
+            const namePattern = /^[a-zA-Z\s]+$/;
+            const countryPattern = /^[a-zA-Z\s]+$/;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const phonePattern = /^\d{10}$/; 
+            const projectNamePattern = /^[a-zA-Z\s]+$/;
+
+            // Validation checks
+            if (!namePattern.test(name)) {
+                alert("Enter a valid name.");
+                return;
+            }
+            if (!countryPattern.test(country)) {
+                alert("Enter a valid country.");
+                return;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email address.");
+                return;
+            }
+            if (!phonePattern.test(phone)) {
+                alert("Enter a valid 10-digit phone number.");
+                return;
+            }
+            if (!projectNamePattern.test(projectName)) {
+                alert("Enter a valid 6-digit OTP.");
+                return;
+            }
+            if (teamsId.trim() === "") {
+                alert("Enter a valid Microsoft Teams ID.");
+                return;
+            }
+
+            // If all validations pass
+            alert(`Application Submitted for ${document.getElementById("position").value}`);
+            document.getElementById("jobForm").reset();
+        });
+    </script>
+
+</body>
+</html>
